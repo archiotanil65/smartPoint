@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>A detailed view of the Spendings</h2>
+<mat-dialog-content class="mat-typography">
+    <div id="chart">
+        <h1>Data Chart :</h1>
+        <canvas baseChart id="mainChart" [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
+      </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

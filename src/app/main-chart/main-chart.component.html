@@ -1,0 +1,18 @@
+<div id="date">
+  <p>Please select the date range</p>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" placeholder="Start Date" [formControl]="startDate">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field> &nbsp;&nbsp; <mat-form-field>
+    <input matInput [matDatepicker]="picker2" placeholder="End Date" [min]="startDate.value" [formControl]="endDate">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field> &nbsp;&nbsp; <button mat-button color="primary" (click)="get()">Submit</button>
+</div>
+<div class="container">
+<div id="chart">
+    <h1>Data Chart :</h1>
+    <canvas baseChart id="mainChart" [data]="doughnutChartData" [type]="doughnutChartType" (click)="chartClicked($event)"></canvas>
+  </div>
+</div>
