@@ -12,6 +12,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class SubChartComponent implements AfterViewInit {
 
   dataset: any = [];
+  subDataSet:any = [];
   amountSpent:number [] = [];
   public doughnutChartLabels: string[] = [];
   public doughnutChartType: ChartType = 'doughnut';
@@ -26,10 +27,10 @@ export class SubChartComponent implements AfterViewInit {
 
     this.dataset = this.data.dataKey;
     this.dataset.CategoryId = '2';
-    console.log(this.dataset);
     this.doughnutChartLabels = [];
     this.amountSpent = [];
     this.postData.callSubChartApi(this.dataset).subscribe((data: any) => {
+      this.subDataSet = data.responseData;
       for(const values of data.responseData)
         {
           this.doughnutChartLabels.push(values.SubCategoryName);

@@ -4,6 +4,14 @@
         <h1>Data Chart :</h1>
         <canvas baseChart id="mainChart" [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
       </div>
+      <div id="subItems">
+          <h1>SubCategories:</h1>
+          <h2>Spendings based on SubCategories</h2>
+          <div id="categories" *ngFor="let data of subDataSet">
+            <h3>{{data.SubCategoryName}}</h3>
+            <span style="font-family:sans-serif;padding-left:15px;">$&nbsp;{{data.AmountSpent}}</span>
+          </div>
+        </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>

@@ -12,7 +12,15 @@
 </div>
 <div class="container">
 <div id="chart">
-    <h1>Data Chart :</h1>
+    <h1>Data Chart:</h1>
     <canvas baseChart id="mainChart" [data]="doughnutChartData" [type]="doughnutChartType" (click)="chartClicked($event)"></canvas>
+    <div id="itemList">
+      <h1>Categories:</h1>
+      <h2>Spendings based on Categories</h2>
+      <div id="categories" *ngFor="let data of dataset">
+        <h3>{{data.CategoryName}}</h3>
+        <span style="font-family:sans-serif;padding-left:15px;">$&nbsp;{{data.AmountSpent}}</span>
+      </div>
+    </div>
   </div>
 </div>
