@@ -55,6 +55,7 @@ export class MainChartComponent implements OnInit, OnChanges {
     this.postData.callMainChartApi(this.obj).subscribe((data: any) => {
       if (data.responseData != 0) {
         this.dataset = data.responseData;
+        console.log(this.dataset);
         for(const values of this.dataset)
         {
           this.doughnutChartLabels.push(values.CategoryName);
@@ -75,8 +76,10 @@ export class MainChartComponent implements OnInit, OnChanges {
     });
   }
 
-  public chartClicked(e:any):void {
+  public chartClicked(evt):void {
     
+    //const points = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+    //console.log("points",points);
       const dialogRef = this.dialog.open(SubChartComponent,{
         data: {
           dataKey: this.obj
